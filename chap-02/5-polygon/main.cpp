@@ -13,8 +13,8 @@ int main()
     // std::cout << "(" << vertex.first << "," << vertex.second << ")" << std::endl; // -> (4,5)
 
     // polygon.add_vertex(8, 9);
-    
-    // std::cout << "(" << vertex.first << "," << vertex.second << ")" << std::endl; //-> ???
+
+    // std::cout << vertex.first << " " << vertex.second << std::endl; // -> ???
 
     return 0;
 }
