@@ -9,12 +9,12 @@ using Time = std::pair<unsigned int, unsigned int>;
 class Event
 {
 public:
-    Event(const Time& notif_time, const std::string& message)
-        : _notif_time { notif_time }
-        , _message { message }
-    {}
+    Event(const Time &notif_time, const std::string &message)
+        : _notif_time{notif_time}, _message{message}
+    {
+    }
 
 private:
-    Time        _notif_time;
-    std::string _message;
+    const Time _notif_time;
+    const std::string _message;
 };
