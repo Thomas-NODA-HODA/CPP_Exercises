@@ -1,21 +1,15 @@
-add_executable(c3-1-box
-    1-lifespan/Box.cpp
-    1-lifespan/Box.h
+set(executables
+    1-vectors
+    2-sequentials
+    4-strings
+    5-tuples
 )
 
-add_executable(c3-3-cat
-    3-allocation/Cat.cpp
-    3-allocation/Cat.h
-)
+foreach(executable ${executables})
+    add_executable(c3-${executable} ${executable}.cpp)
+endforeach()
 
-add_executable(c3-3-bag
-    3-allocation/Bag.cpp
-)
-
-add_executable(c3-4-inplace
-    4-move/InPlace.cpp
-)
-
-add_executable(c3-5-move
-    4-move/Move.cpp
+add_executable(c3-3-associatives
+    3-associatives/main.cpp
+    3-associatives/keys.h
 )
