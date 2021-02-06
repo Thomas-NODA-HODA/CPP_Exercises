@@ -1,16 +1,16 @@
 #pragma once
 
-#include <iostream> 
-#include <string> 
-#include <string_view> 
+#include <iostream>
+#include <string>
+#include <string_view>
 
 class Person
 {
 public:
 	Person(std::string_view name, int position)
-		: _name { name }
-		, _position { position }
-	{}
+			: _name{name}, _position{position}
+	{
+	}
 
 	void answer_phone() const
 	{
@@ -24,10 +24,10 @@ public:
 
 	void set_position(int position)
 	{
-		_position = position;
+		position = _position;
 	}
 
 private:
 	const std::string _name;
-	int               _position = 0;
+	int _position = 0;
 };
