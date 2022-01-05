@@ -4,14 +4,14 @@
 #include <string>
 #include <utility>
 
-std::vector<Event> parse_events(int argc, char **argv)
+std::vector<Event> parse_events(int argc, char** argv)
 {
-    const std::regex reg{"(\\d+):(\\d+)\\s*(.+)\\s*"};
+    const std::regex reg { "(\\d+):(\\d+)\\s*(.+)\\s*" };
 
     std::vector<Event> events;
     for (auto i = 1; i < argc; ++i)
     {
-        const std::string arg{argv[i]};
+        const std::string arg { argv[i] };
 
         std::smatch match;
         if (std::regex_match(arg, match, reg))

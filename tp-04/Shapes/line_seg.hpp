@@ -5,7 +5,7 @@
 class LineSegment : public Line
 {
 public:
-	using Line::Line;
+    using Line::Line;
 
-	~LineSegment() = default;
+    ~LineSegment() = default;
 };
