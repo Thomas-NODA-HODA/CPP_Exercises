@@ -39,10 +39,12 @@ void Player::play(Player &p1, Player &p2)
 {
   if (p2[Player::turn_number] < p1[Player::turn_number])
   {
+    std::cout << p1._name << " win" << std::endl;
     p1._score += 1;
   }
   else if (p1[Player::turn_number] < p2[Player::turn_number])
   {
+    std::cout << p2._name << " win" << std::endl;
     p2._score += 1;
   }
   Player::turn_number += 1;

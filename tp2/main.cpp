@@ -20,10 +20,9 @@ int main()
   Player p2{"Julien"};
   Player::deal_all_cards(p1, p2);
 
-  for (auto i = 0; i < 16; ++i)
+  for (auto i = 0; i < 30; ++i)
   {
-    std::cout << p1[i] << std::endl;
-    std::cout << p2[i] << std::endl;
+    Player::play(p1, p2);
   }
   return 0;
 }
