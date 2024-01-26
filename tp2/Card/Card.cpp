@@ -8,3 +8,8 @@ void Card::print() const
 {
   std::cout << _value << " de " << _color << std::endl;
 };
+
+bool Card::operator==(Card card) const
+{
+  return card._value == _value;
+};
