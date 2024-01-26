@@ -6,9 +6,9 @@ class Card
 {
 public:
   Card(unsigned int value, std::string color);
-  std::string print();
+  void print();
 
 private:
   unsigned int _value;
   std::string _color;
-}
+};
