@@ -10,6 +10,8 @@ public:
   Player(std::string name);
   static void deal_all_cards(Player &p1, Player &p2);
   Card operator[](unsigned int index);
+  static inline int turn_number = 1;
+  static void play(Player &p1, Player &p2);
 
 private:
   std::string _name;

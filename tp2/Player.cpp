@@ -34,3 +34,16 @@ Card Player::operator[](unsigned int index)
 {
   return _cards[index];
 }
+
+void Player::play(Player &p1, Player &p2)
+{
+  if (p2[Player::turn_number] < p1[Player::turn_number])
+  {
+    p1._score += 1;
+  }
+  else if (p1[Player::turn_number] < p2[Player::turn_number])
+  {
+    p2._score += 1;
+  }
+  Player::turn_number += 1;
+}
