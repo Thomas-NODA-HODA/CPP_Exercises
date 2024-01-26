@@ -29,3 +29,8 @@ void Player::deal_all_cards(Player &p1, Player &p2)
     p2._cards.push_back(all_cards[i]);
   }
 };
+
+Card Player::operator[](unsigned int index)
+{
+  return _cards[index];
+}

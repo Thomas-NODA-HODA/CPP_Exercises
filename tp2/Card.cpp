@@ -18,3 +18,19 @@ bool Card::operator<(Card card) const
 {
   return _value < card._value;
 };
+
+unsigned int Card::value() const
+{
+  return _value;
+}
+
+std::string Card::color() const
+{
+  return _color;
+}
+
+std::ostream &operator<<(std::ostream &stream, Card card)
+{
+  stream << card.value() << " de " << card.color();
+  return stream;
+}
