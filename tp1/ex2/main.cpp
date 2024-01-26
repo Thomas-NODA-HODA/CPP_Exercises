@@ -3,7 +3,8 @@
 
 #include "Person.hpp"
 
-int main() {
+int main()
+{
     std::cout << "Nombre de personnes: ";
     int number;
     std::cin >> number;
@@ -13,7 +14,8 @@ int main() {
     std::string first_name;
     std::string surname;
 
-    for(int i = 0; i < number; ++i) {
+    for (int i = 0; i < number; ++i)
+    {
         std::cout << "Prenom: ";
         std::cin >> first_name;
         std::cout << "Nom: ";
@@ -23,12 +25,13 @@ int main() {
 
         persons.push_back(person);
     }
-    
+
     std::cout << "Les personnes sont ";
 
     std::string separator = "";
 
-    for(auto person : persons) {
+    for (auto person : persons)
+    {
         std::cout << separator << person.get_first_name() << " " << person.get_surname();
         separator = ", ";
     }

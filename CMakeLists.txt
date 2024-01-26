@@ -6,13 +6,15 @@ add_executable(main
 )
 
 add_executable(main2
-./tp1/ex2/main.cpp
 ./tp1/ex2/Person.cpp
+./tp1/ex2/Person.hpp
+./tp1/ex2/main.cpp
 )
 
 add_executable(main3
 ./tp1/ex3/main.cpp
 ./tp1/ex3/utils.cpp
+./tp1/ex3/utils.hpp
 )
 
 target_compile_features(main PUBLIC cxx_std_17)
