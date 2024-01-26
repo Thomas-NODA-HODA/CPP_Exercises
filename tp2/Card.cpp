@@ -13,3 +13,8 @@ bool Card::operator==(Card card) const
 {
   return card._value == _value;
 };
+
+bool Card::operator<(Card card) const
+{
+  return _value < card._value;
+};
