@@ -47,3 +47,8 @@ void Player::play(Player &p1, Player &p2)
   }
   Player::turn_number += 1;
 }
+
+int Player::score() const
+{
+  return _score;
+}
