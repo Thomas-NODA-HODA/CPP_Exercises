@@ -73,8 +73,11 @@ int main()
 ![](images/ex1-b.svg)
 
 1. Dans le graphe d'ownership, comment distingue-t-on un pointeur d'une référence ?
+>Par une flèche avec une ligne pointée
 2. Comment est représenté un pointeur nul ?
+>Par un rond croisé
 3. En termes de code, quelles sont les deux différences principales entre un pointeur-observant et une référence ?
+>
 
 ### Cas C - Insertions dans un `std::vector`
 
@@ -110,8 +113,35 @@ Lors d'une insertion, si le buffer mémoire réservé par `std::vector` n'a pas 
 Chaque élément est déplacé de son ancienne adresse mémoire vers la nouvelle.
 
 1. Essayez de représenter les transitions dans le graphe d'ownership après le dernier `push_back` si celui-ci déclenchait une réallocation mémoire.
+>Lorsque le vector réalloue une mémoire pour agrandir, `products` pointe à ce nouveau vecteur, mais pas `first_product` car il pointe à **l'adresse originale de product[0]**.
 2. Quel problème relève-t-on dans le graphe ?
+>`first_product` pointe vers une adresse de valeur qui est devenu nulle.
 3. Modifiez le code ci-dessus afin que `products` contienne des pointeurs ownants. Pensez à ajouter un destructeur à `Client` pour libérer la mémoire allouée dynamiquement.
+```cpp
+#include <memory>
+#include <vector>
+
+struct Product
+{};
+
+struct Client
+{
+    std::vector<Product> products;
+};
+
+int main()
+{
+    auto client = Client {};
+
+    client.products.push_back(Product{});
+    client.products.push_back(Product{});
+
+    auto* first_product = &client.products.front();
+                                                    // <-- on est ici
+    client.products.push_back(Product{});
+    return 0;
+}
+```
 4. Redessinez le graphe d'ownership de la question 1, mais en prenant en compte vos changements dans le code.
 5. Avez-vous toujours le problème relevé à la question 2 ?
 
@@ -122,12 +152,12 @@ Chaque élément est déplacé de son ancienne adresse mémoire vers la nouvelle
 ```cpp
 #include <iostream>
 
-XX add(XX a, XX b)
+int add(int a, int b)
 {
     return a + b;
 }
 
-XX add_to(XX a, XX b)
+void add_to(int& a, int b)
 {
     a += b;
 }
@@ -146,12 +176,12 @@ int main()
 Vous pouvez vous aider des commentaires pour comprendre comment les fonctions utilisent leurs paramètres.
 ```cpp
 // Return the number of occurrences of 'a' found in string 's'.
-int count_a_occurrences(std::string s);
+int count_a_occurrences(const std::string s);
 
 // Update function of a rendering program.
 // - dt (delta time) is read by the function to know the time elapsed since the last frame.
 // - errors is a string filled by the function to indicate what errors have occured.
-void update_loop(const float& dt, std::string& errors_out);
+void update_loop(float dt, std::string& errors_out);
 
 // Return whether all numbers in 'values' are positive.
 // If there are negative values in it, fill the array 'negative_indices_out' with the indices
@@ -160,11 +190,11 @@ void update_loop(const float& dt, std::string& errors_out);
 //    -> res is false, since not all values are positive
 //    -> negative_indices contains { 1, 3 } because values[1] = -2 and values[3] = -4
 //    -> negative_count is 2
-bool are_all_positives(std::vector<int> values, int negative_indices_out[], size_t& negative_count_out);
+bool are_all_positives(const std::vector<int> values, std::vector<int>& negative_indices_out, size_t& negative_count_out);
 
 // Concatenate 'str1' and 'str2' and return the result.
 // The input parameters are not modified by the function.
-std::string concatenate(char* str1, char* str2);
+std::string concatenate(const std::string str1, const std::string str2);
 ```
 
 ## Exercice 3 - Gestion des resources (55min)
