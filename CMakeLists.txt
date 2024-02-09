@@ -1,8 +1,11 @@
 cmake_minimum_required(VERSION 3.16)
 project(CPP_Exercices)
 
-add_executable(main
-  ./tp1/ex1/main.cpp
-)
+file(GLOB tp_folders ${CMAKE_CURRENT_SOURCE_DIR}/tp*)
+foreach(tp_folder ${tp_folders})
 
-target_compile_features(main PUBLIC cxx_std_17)
+if(EXISTS ${tp_folder}/CMakeLists.txt)
+    add_subdirectory(${tp_folder})
+endif()
+
+endforeach()
