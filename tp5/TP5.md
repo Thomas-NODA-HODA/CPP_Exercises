@@ -42,7 +42,7 @@ ptr + 3     // r-value
 d. `str` est une `std::string`
 ```cpp
 std::string { "aaaa" }    // r-value
-str                       // r-value
+str                       // l-value
 str + "aaaa"              // r-value
 str += "aaaa"             // l-value
 "aaaa"                    // r-value
