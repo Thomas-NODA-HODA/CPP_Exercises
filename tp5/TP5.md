@@ -28,7 +28,7 @@ vec[5]                        // l-value
 vec                           // l-value
 vec.pop_back()                // r-value
 std::vector { 'a', 'b', 'c' } // r-value
-vec.push_back('d')            // l-value
+vec.push_back('d')            // r-value
 std::move(vec)                // r-value
 ```
 
@@ -45,7 +45,7 @@ std::string { "aaaa" }    // r-value
 str                       // l-value
 str + "aaaa"              // r-value
 str += "aaaa"             // l-value
-"aaaa"                    // r-value
+"aaaa"                    // l-value car il est dans la mémoire statique
 ```
 
 2. Supposons que vous ayiez l'instruction : `Class inst { expr }`.  
