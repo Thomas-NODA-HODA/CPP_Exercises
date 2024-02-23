@@ -52,8 +52,6 @@ str += "aaaa"
 Quelles sont les deux conditions pour que le constructeur de copie soit appelé ?  
 Même question pour le constructeur de déplacement ?
 
->Pour aue le constructeur de copie soit appelé, il faut que l'expression soit un l-value.
-
 ## Exercice 2 - CopyablePtr (90 min)
 
 Dans cet exercice vous allez implémenter votre propre pointeur intelligent.  
