@@ -26,9 +26,9 @@ b. `vec` est un `std::vector<char>`
 ```cpp
 vec[5]                        // l-value
 vec                           // l-value
-vec.pop_back()                // r-value
+vec.pop_back()                // l-value
 std::vector { 'a', 'b', 'c' } // r-value
-vec.push_back('d')            // r-value
+vec.push_back('d')            // l-value
 std::move(vec)                // r-value
 ```
 
