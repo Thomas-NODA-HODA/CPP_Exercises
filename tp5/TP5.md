@@ -15,42 +15,44 @@
 
 a. `i` est un `int`  
 ```cpp
-4       // r-value
-4 + i   // r-value
-i       // l-value
-i = 4   // l-value
-i == 4  // r-value
+4
+4 + i
+i
+i = 4
+i == 4
 ```
 
 b. `vec` est un `std::vector<char>`
 ```cpp
-vec[5]                        // l-value
-vec                           // l-value
-vec.pop_back()                // l-value
-std::vector { 'a', 'b', 'c' } // r-value
-vec.push_back('d')            // l-value
-std::move(vec)                // r-value
+vec[5] 
+vec
+vec.pop_back()
+std::vector { 'a', 'b', 'c' }
+vec.push_back('d')
+std::move(vec)
 ```
 
 c. `ptr` est un pointeur de `int`
 ```cpp
-ptr + 3     // r-value
-*(ptr + 3)  // l-value
-*ptr + 3    // r-value
+ptr + 3
+*(ptr + 3)
+*ptr + 3
 ```
 
 d. `str` est une `std::string`
 ```cpp
-std::string { "aaaa" }    // r-value
-str                       // l-value
-str + "aaaa"              // r-value
-str += "aaaa"             // l-value
-"aaaa"                    // l-value car il est dans la mémoire statique
+std::string { "aaaa" }
+str
+str + "aaaa"
+str += "aaaa"
+"aaaa"
 ```
 
 2. Supposons que vous ayiez l'instruction : `Class inst { expr }`.  
 Quelles sont les deux conditions pour que le constructeur de copie soit appelé ?  
 Même question pour le constructeur de déplacement ?
+
+>Pour aue le constructeur de copie soit appelé, il faut que l'expression soit un l-value.
 
 ## Exercice 2 - CopyablePtr (90 min)
 
