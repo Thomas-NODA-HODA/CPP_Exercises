@@ -26,10 +26,10 @@ b. `vec` est un `std::vector<char>`
 ```cpp
 vec[5]                        // l-value
 vec                           // l-value
-vec.pop_back()                // l-value
+vec.pop_back()                // r-value
 std::vector { 'a', 'b', 'c' } // r-value
 vec.push_back('d')            // l-value
-std::move(vec)                // l-value
+std::move(vec)                // r-value
 ```
 
 c. `ptr` est un pointeur de `int`
