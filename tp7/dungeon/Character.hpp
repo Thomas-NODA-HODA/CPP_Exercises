@@ -9,5 +9,9 @@ public:
         : Entity {}
     {}
 
+    Character(int x, int y)
+        : Entity(x, y)
+    {}
+
 private:
 };
