@@ -11,5 +11,7 @@ public:
 
     void update() {}
 
+    void interact_with(const Entity& entity) {}
+
 private:
 };
