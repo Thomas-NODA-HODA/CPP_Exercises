@@ -12,8 +12,6 @@ Pour chacun des appels ci-dessous, déterminez le type dynamique et le type stat
 Déduisez-en la fonction qui sera appelée au moment de l'exécution du programme.
 
 ```cpp
-
-
 class Animal
 {
 public:
@@ -65,23 +63,47 @@ int main()
     Herbivore& bird_as_herb = bird;
     Carnivore& bird_as_carn = bird;
 
-    tiger.move();                  // I1
-    tiger_as_animal.move();        // I2
+    /* 
+     tiger
+        - statique -> Tiger
+        - dynamique -> Tiger
+     tiger_as_animal
+        - statique -> Animal
+        - dynamique -> Tiger
+     tiger_as_carn
+        - statique -> Carnivore
+        - dynamique -> Tiger
+     bird
+        - statique -> Bird
+        - dynamique -> Bird
+     bird_as_animal
+        - statique -> Animal
+        - dynamique -> Bird
+     bird_as_herb
+        - statique -> Herbivore
+        - dynamique -> Bird
+     bird_as_carn
+        - statique -> Carnivore
+        - dynamique -> Bird
+     */
 
-    bird.move();                   // I3
-    bird_as_animal.move();         // I4
+    tiger.move();                  // Tiger::move
+    tiger_as_animal.move();        // Tiger::move
 
-    bird.can_eat_plant();          // I5
-    bird_as_herb.can_eat_plant();  // I6
-    bird_as_carn.can_eat_plant();  // I7
+    bird.move();                   // Bird::move
+    bird_as_animal.move();         // Animal::move car Bird::move est const!!
 
-    tiger.can_eat_plant();         // I8
-    tiger.can_eat_meat();          // I9
-    tiger_as_carn.can_eat_meat();  // I10
+    bird.can_eat_plant();          // Bird::can_eat_plant
+    bird_as_herb.can_eat_plant();  // Herbivore::can_eat_plant car Bird::can_eat_plant n'est pas const!!
+    bird_as_carn.can_eat_plant();  // Carnivore::can_eat_plant car non virtuelle
 
-    bird.type();                   // I11
-    bird_as_animal.type();         // I12
-    tiger_as_animal.type();        // I13
+    tiger.can_eat_plant();         // Carnivore::can_eat_plant
+    tiger.can_eat_meat();          // Tiger::can_eat_meat
+    tiger_as_carn.can_eat_meat();  // Carnivore::can_eat_meat car non virtuelle
+
+    bird.type();                   // Bird::type
+    bird_as_animal.type();         // Animal::type car non virtuelle
+    tiger_as_animal.type();        // Animal::type car non virtuelle
 
     return 0;
 }
@@ -100,13 +122,13 @@ Une fois de plus, nous vous avons préparé le squelette du programme.
 
 ```b
 # Configurer le projet dans un dossier de build
-cmake -B <chemin_vers_le_dossier_build> -S <chemin_vers_le_dossier_tp5>
+cmake -B <chemin_vers_le_dossier_build> -S <chemin_vers_le_dossier_tp7>
 
 # Compiler le programme
-cmake --build <chemin_vers_le_dossier_build> --target tp6-ex1
+cmake --build <chemin_vers_le_dossier_build>/tp7 --target tp7-ex2
 
 # Lancer le programme
-<chemin_vers_le_dossier_build>/tp6-ex1
+<chemin_vers_le_dossier_build>/tp7/tp7-ex2
 ```
 
 2. Prenez connaissance du contenu des fichiers pré-existants et répondez aux questions suivantes :
