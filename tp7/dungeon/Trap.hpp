@@ -1,18 +1,16 @@
 #pragma once
 
-#include "Entity.hpp"
+#include "Item.hpp"
 #include "Random.hpp"
 
-class Trap : public Entity
+class Trap : public Item
 {
 public:
     Trap(int width, int height)
-        : Entity(random_value(0, width), random_value(0, height))
+        : Item(random_value(0, width), random_value(0, height))
     {}
 
     char get_representation() const override { return 'X'; }
-
-    void update() override {}
 
 private:
 };

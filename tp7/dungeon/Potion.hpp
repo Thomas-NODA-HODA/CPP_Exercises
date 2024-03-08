@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Trap.hpp"
+#include "Item.hpp"
 
-class Potion : public Trap
+class Potion : public Item
 {
 public:
     Potion(int width, int height)
-        : Trap(width, height)
+        : Item(width, height)
     {}
 
     char get_representation() const override { return '$'; }

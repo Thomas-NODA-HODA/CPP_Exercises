@@ -1,6 +1,7 @@
 #include "Character.hpp"
 #include "Entity.hpp"
 #include "Logger.hpp"
+#include "Potion.hpp"
 #include "Trap.hpp"
 
 #include <array>
@@ -175,6 +176,7 @@ int main()
     all_entities.push_back(std::make_unique<Character>(40, 5));
     all_entities.push_back(std::make_unique<Trap>(width, height));
     all_entities.push_back(std::make_unique<Trap>(width, height));
+    all_entities.push_back(std::make_unique<Potion>(width, height));
 
     fill_grid(grid, all_entities);
 
