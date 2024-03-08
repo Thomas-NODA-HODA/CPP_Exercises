@@ -19,7 +19,7 @@ public:
 
     virtual void update() { random_move(_x, _y); }
 
-    virtual void interact_with(const Entity& entity) = 0;
+    virtual void interact_with(Entity& entity) = 0;
 
 private:
     int _x = 0;

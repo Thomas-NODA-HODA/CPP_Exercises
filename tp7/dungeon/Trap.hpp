@@ -12,7 +12,7 @@ public:
 
     char get_representation() const override { return 'X'; }
 
-    void interact_with(const Entity& entity) {}
+    void interact_with(Entity& entity) {}
 
 private:
 };

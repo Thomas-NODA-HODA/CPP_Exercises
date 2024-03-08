@@ -11,7 +11,7 @@ public:
 
     char get_representation() const override { return '$'; }
 
-    void interact_with(const Entity& entity) {}
+    void interact_with(Entity& entity) {}
 
 private:
 };
