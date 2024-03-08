@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Entity.hpp"
+#include "Potion.hpp"
 #include "Trap.hpp"
 
 class Character : public Entity
@@ -25,6 +26,18 @@ public:
             if (_life < 1)
             {
                 _representation = ' ';
+                return;
+            }
+            _representation = 'o';
+        }
+
+        const auto* potion = dynamic_cast<Potion*>(&entity);
+        if (potion != nullptr)
+        {
+            ++_life;
+            if (_life > 1)
+            {
+                _representation = 'O';
                 return;
             }
             _representation = 'o';

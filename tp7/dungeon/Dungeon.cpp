@@ -16,7 +16,7 @@
 #include <vector>
 
 using Cell = std::vector<Entity*>;
-using Grid = std::array<std::array<Cell, 50>, 10>;
+using Grid = std::array<std::array<Cell, 10>, 5>;
 
 void fill_grid(Grid& grid, const std::vector<std::unique_ptr<Entity>>& entities)
 {
@@ -172,10 +172,12 @@ int main()
 
     auto all_entities = std::vector<std::unique_ptr<Entity>> {};
     all_entities.push_back(std::make_unique<Character>(3, 2));
-    all_entities.push_back(std::make_unique<Character>(7, 6));
-    all_entities.push_back(std::make_unique<Character>(40, 5));
+    all_entities.push_back(std::make_unique<Character>(1, 2));
+    all_entities.push_back(std::make_unique<Character>(2, 1));
     all_entities.push_back(std::make_unique<Trap>(width, height));
     all_entities.push_back(std::make_unique<Trap>(width, height));
+    all_entities.push_back(std::make_unique<Potion>(width, height));
+    all_entities.push_back(std::make_unique<Potion>(width, height));
     all_entities.push_back(std::make_unique<Potion>(width, height));
 
     fill_grid(grid, all_entities);
