@@ -13,5 +13,7 @@ public:
         : Entity(x, y)
     {}
 
+    char get_representation() const { return '0'; }
+
 private:
 };
